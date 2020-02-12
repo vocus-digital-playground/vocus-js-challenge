@@ -28,7 +28,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   entry: [
-    './client/index.tsx',
+    './client/index.ts',
   ],
   output: {
     filename: 'app.js',
