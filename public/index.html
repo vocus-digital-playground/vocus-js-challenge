@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vocus Engineering Challenge</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <header class="navbar navbar-expand bg-light">
+      <div class="container">
+        <div class="navbar-brand">
+          Vocus Digital
+        </div>
+      </div>
+    </header>
+
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-sm">
+          <h1>Vocus JavaScript Challenge</h1>
+
+          <p>
+            Nice work making it to the next step towards working with us Vocus. This is a simple programming
+            challenge that we use here at Vocus Digital to determine how comfortable you are with the
+            some of the technology we use day-to-day.
+          </p>
+
+          <p>
+            Depending on the role you're applying for, we'll ask you to either complete the front-end challenge, or the api challenge (or both).
+            Feel free to do both challenges anyway for bonus points.
+          </p>
+
+          <p>
+            <strong>Remember:</strong> there are no wrong answers. This is a creative challenge, and we only
+            use this to understand how you approach and solve engineering problems 😀
+          </p>
+
+          <div class="card">
+            <div class="card-body">
+              <a href="#api" class="btn btn-primary">API Challenge</a>
+              <a href="#client" class="btn btn-primary">Client-side Challenge</a>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="card">
+            <div class="card-body">
+              <h4>Some considerations before submitting your challenge:</h4>
+
+              <ul>
+                <li>Is my code production ready?</li>
+                <li>Has my code been unit tested?</li>
+                <li>Have I provided a readme explaining my solution?</li>
+                <li>Is my code clean and understandable?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-5" />
+
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-sm">
+          <h2 id="api">The API Challenge</h2>
+
+          <p><sub>Anticipated duration: ~90-120 minutes</sub></p>
+
+          <h3>Instructions</h3>
+
+          <p>
+            We've provided a basic Express server with 3 REST endpoints - each which are simply returning a static JSON payload. Uh-oh - anybody can hit these endpoints without being authorized 😮
+          </p>
+
+          <p>
+            We'd like you to implement JWT authentication against all of the REST endpoints. This will involve:
+
+            <ul>
+              <li>
+                Implementing a new <code>/login</code> endpoint. This only needs to be a mock endpoint and only needs to accept a username.
+                The list of mock usernames is in the <code>users.json</code> file.
+              </li>
+              <li>Successfully signing in should grant a user a <strong>refresh token</strong> and an <strong>access token</strong>.</li>
+              <li>Refresh token expiry should be configurable, with a default value of 60 seconds.</li>
+              <li>The user's email and role should be encoded into the JWT.</li>
+              <li>Your implementation of authorization should be compatible with many concurrent sessions.</li>
+              <li>A request with an invalid access token should revoke the associated refresh token.</li>
+              <li>Non-authorized users should get a <code>401</code> HTTP error code.</li>
+            </ul>
+          </p>
+
+            <p>Feel free to use any dependencies as you see fit - just explain why you used them in your readme. We definitely anticipate that you'll need at least a crypto library.</p>
+
+            <p>For some more info about JWT with refresh tokens, <a href="https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/">click here.</a></p>
+          </p>
+
+          <h4>Bonus points</h4>
+
+          <p>
+            <ul>
+              <li>API is containerized with Docker or similar.</li>
+              <li>Solution is deployed to a hosted environment (Heroku, AWS etc).</li>
+              <li>Solution works in a distributed environment.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-5" />
+
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-sm">
+          <h2 id="client">The Client-side Challenge</h2>
+
+          <p><sub>Anticipated duration: ~90-120 minutes</sub></p>
+
+          <h3>Instructions</h3>
+
+          <p>
+            Vocus support wants a dashboard to see a brief overview of their customers. You'll need to build an Angular or React app
+            following the provided design.
+          </p>
+
+          <p>
+            The team lead has given the following requirements:
+          </p>
+
+          <p>
+            <ul>
+              <li>Client app must be built in the <code>/client</code> directory.</li>
+              <li>You must use the provided API's.</li>
+              <li>Solutions must be implemented in Angular, React or Vanilla JavaScript.</li>
+              <li>A Webpack configuration has been provided for convenience, but using it is <strong>optional</strong>.</li>
+              <li>You may build your app in the `public/customers.html` file, or run your own web server (ng serve/create-react-app etc).</li>
+            </ul>
+          </p>
+
+          <br />
+
+          <h4>Design</h4>
+
+          <p>We've used the Bootstrap design language to create a UI, and the Bootstrap CSS bundle has already been included on the page. Clicking on the user card should toggle the visiblity of the users details and dismiss any other cards which are expanded.</p>
+
+          <img src="/design.png" alt="Vocus User Dashboard">
+
+          <br />
+
+          <h4>API</h4>
+
+          <h6>locahlhost:3000/api/users</h6>
+
+          <div class="card bg-light w-50">
+            <div class="card-body">
+              <pre><code>{
+  id: number;
+  email: string;
+  nameFirst: string;
+  nameLast: string;
+  avatar: string;
+  company: string;
+}</code></pre>
+            </div>
+          </div>
+
+          <br />
+
+          <h6>locahlhost:3000/api/roles?id[]=user_id1&id[]=user_id2</h6>
+
+          <div class="card bg-light w-50">
+            <div class="card-body">
+              <pre><code>[
+  {
+    userId: number;
+    role: 'OWNER' | 'ADMIN' | 'USER' | 'GUEST'
+  },
+  ...
+]</code></pre>
+            </div>
+          </div>
+
+          <br />
+
+          <h6>locahlhost:3000/api/permissions</h6>
+
+          <div class="card bg-light w-50">
+            <div class="card-body">
+              <pre><code>{
+  [role]: {
+    manageSuperUsers: boolean;
+    manageUsers: boolean;
+    billing: boolean;
+    editDocuments: boolean;
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <br />
+
+          <h4>Bonus points</h4>
+          <p>
+            <ul>
+              <li>A solution written in TypeScript.</li>
+              <li>Adding hash based routing into the app (e.g. clicking on a user appends <code>#[user_email]</code> to the URL</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm-12 col-md-10">
+          <br />
+          <h2>Stuck? Questions?</h2>
+
+          <p>
+            If you need some clarity around the requirements, or you're feeling generally stuck - please get in touch with your Vocus contact who will refer you to one of us.
+          </p>
+
+          <p>
+            We don't want you to feel like this is a roadblock to getting an interview. It's definitely not intended to be am impossible challenge or a filter. We'll reiterate: this exercise is just to gauge how comfortable you are with our technology.
+          </p>
+
+          <p>Good luck and happy coding!</p>
+          <p><strong>Vocus Digital</strong></p>
+
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

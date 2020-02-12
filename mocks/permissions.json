@@ -1,0 +1,26 @@
+{
+  "OWNER": {
+    "manageSuperUsers": true,
+    "manageUsers": true,
+    "billing": true,
+    "editDocuments": true
+  },
+  "ADMIN": {
+    "manageSuperUsers": false,
+    "manageUsers": true,
+    "billing": true,
+    "editDocuments": true
+  },
+  "USER": {
+    "manageSuperUsers": false,
+    "manageUsers": false,
+    "billing": false,
+    "editDocuments": true
+  },
+  "GUEST": {
+    "manageSuperUsers": false,
+    "manageUsers": false,
+    "billing": false,
+    "editDocuments": false
+  }
+}
